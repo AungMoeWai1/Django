@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <body>
+
+#This is my custom menu with variable parsing
+{% include "mymenu.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
+
     {% with firstname="Tobias" %}
     <h1>Hello {{ firstname }}, how are you?</h1>
     {% endwith %}
@@ -23,5 +27,8 @@
 {% comment %}
   <h1>Welcome ladies and gentlemen</h1>
 {% endcomment %}
+
+{% include 'footer.html' %} 
+
 </body>
 </html>
