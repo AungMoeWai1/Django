@@ -6,37 +6,12 @@
 
 
 {% block content %}
-  <p><a href="/">HOME</a></p>
-
-  <h1>Members</h1>
-
-  <table border='1'>
-    <tr>
-      <th>ID</th>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Phone No</th>
-      <th>Join Date</th>
-      <th>Details</th>
-    </tr>
-    {% for x in mymembers %}
-      <tr>
-        
-        <td>{{ x.id }}</td>
-        <td>{{ x.firstname }}</td>
-        <td>{{ x.lastname }}</td>
-        <td>{{x.phone}}</td>
-        <td>{{x.joined_date}}</td>
-        <td><a href="details/{{x.id}}">{{x.firstname}} {{x.lastname}}</a></td>
-      </tr>
-    
-    {% endfor %}
-  </table>
-<!--   
-  <ul>
-    {% for x in mymembers %}
-      <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
-    {% endfor %}
-  </ul> -->
+  <div class="mycard">
+    <h1>Members</h1>
+    <ul>
+      {% for x in mymembers %}
+        <li onclick="window.location = 'details/{{ x.id }}'">{{ x.firstname }} {{ x.lastname }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
-

@@ -4,16 +4,18 @@ from .models import Member
 from django.db.models import Q
 
 def members(request):
-  # mymembers=Member.objects.all().values()
+  mymembers=Member.objects.all().values()
 
   #To filter for the specific member by using or operator  
-  mydata = Member.objects.filter(firstname='Emil').values() | Member.objects.filter(firstname='Tobias').values()
+  # mydata = Member.objects.filter(firstname='Emil').values() | Member.objects.filter(firstname='Tobias').values()
   #Short format for the specific query
-  mydata = Member.objects.filter(Q(firstname='Tobias') | Q(firstname='Aung')).values()
+  # mydata = Member.objects.filter(Q(firstname='Tobias') | Q(firstname='Aung')).values()
+  #This is use to filter with start keyword.
+  # .filter(firstname__startswith='L');
 
   template = loader.get_template('all_members.html')
   context={
-    'mymembers':mydata,
+    'mymembers':mymembers,
   }
   return HttpResponse(template.render(context,request))
 
